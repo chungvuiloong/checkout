@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Haiilo-Matter-Regular';
+  src: url('/assets/fonts/Haiilo-Matter-Regular.woff2') format('woff2'),
+       url('/assets/fonts/Haiilo-Matter-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-primary: #028194;
+  --font-family-matter: 'Haiilo-Matter-Regular', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: 'Haiilo-Matter-Regular', system-ui, -apple-system, sans-serif !important;
+}

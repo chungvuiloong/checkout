@@ -1,0 +1,12 @@
+import Header from "./components/layout/Header"
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-100">
+        <Header />
+
+    </div>
+  )
+}
+
+export default App
