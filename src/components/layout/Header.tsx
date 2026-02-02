@@ -7,7 +7,7 @@ const Header = () => {
             <div className='container mx-auto px-4 flex items-center'>
                 <img src={logo} alt="Logo" className="h-12 mr-6" />
                 <nav>
-                    <span className="text-white font-bold">Supermarket</span>
+                    <span className="text-2xl text-white font-medium">Supermarket</span>
                 </nav>
             </div>
         </section>

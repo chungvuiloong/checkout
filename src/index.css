@@ -1,19 +1,50 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'Haiilo-Matter-Regular';
-  src: url('/assets/fonts/Haiilo-Matter-Regular.woff2') format('woff2'),
-       url('/assets/fonts/Haiilo-Matter-Regular.woff') format('woff');
-  font-weight: normal;
+  font-family: 'Haiilo Matter';
+  src: url('/assets/fonts/Haiilo-Matter-Light-fb91_400.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Haiilo Matter';
+  src: url('/assets/fonts/Haiilo-Matter-Regular-c95d_400.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Haiilo Matter';
+  src: url('/assets/fonts/Haiilo-Matter-Medium-c38a_400.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Haiilo Matter';
+  src: url('/assets/fonts/Haiilo-Matter-SemiBold-c635_400.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Haiilo Matter';
+  src: url('/assets/fonts/Haiilo-Matter-Bold-812b_400.otf') format('opentype');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @theme {
   --color-primary: #028194;
-  --font-family-matter: 'Haiilo-Matter-Regular', system-ui, -apple-system, sans-serif;
+  --font-family-sans: 'Haiilo Matter', system-ui, -apple-system, sans-serif;
 }
 
 body {
-  font-family: 'Haiilo-Matter-Regular', system-ui, -apple-system, sans-serif !important;
+  font-family: 'Haiilo Matter', system-ui, -apple-system, sans-serif !important;
 }
