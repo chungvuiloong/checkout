@@ -1,7 +1,7 @@
 type ButtonProps = {
     text: string;
     belowImage?: boolean;
-    variable?: "primary" | "secondary";
+    variant?: "primary" | "secondary";
     onClick: () => void;
     disabled?: boolean;
     ariaLabel?: string;
@@ -10,7 +10,7 @@ type ButtonProps = {
 const Button = ({
     text,
     belowImage = false,
-    variable = "primary",
+    variant = "primary",
     onClick,
     disabled = false,
     ariaLabel
@@ -29,7 +29,7 @@ const Button = ({
     return (
         <button
             className={`${hoverBelowImage} px-6 py-3 border-2 w-max rounded-full
-            ${style[variable]} transition-colors group pointer
+            ${style[variant]} transition-colors group pointer
             disabled:opacity-50 disabled:cursor-not-allowed
             focus:outline-none`}
             onClick={onClick}
@@ -41,7 +41,7 @@ const Button = ({
                 src="/assets/icon/icon-add-to-cart.svg"
                 alt=""
                 aria-hidden="true"
-                className={`inline-block w-5 h-5 mr-2 -mt-1 ${logoStyle[variable]}`}
+                className={`inline-block w-5 h-5 mr-2 -mt-1 ${logoStyle[variant]}`}
             />
             <span>{text}</span>
         </button>
