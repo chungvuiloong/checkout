@@ -18,6 +18,23 @@ const data = [
         }
       }
     }
+  },
+  {
+    id: 2,
+    name: "coffee",
+    type: "beverage",
+    price: 0.70,
+    quantityInStock: 10,
+    imageUrl: "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&w=800",
+    offer: {
+      weekly: {
+        bundle: {
+          quantity: 2,
+          price: 1,
+          days: [3, 4, 5]
+        }
+      }
+    }
   }
 ];
 
