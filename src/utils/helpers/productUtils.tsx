@@ -17,3 +17,13 @@ export function isProductOfferAvailableToday(productId: number): boolean {
     const today = new Date().getDay();
     return offerDays.includes(today);
 }
+
+export function getProductPriceById(productId: number): number | undefined {
+    const productDetails = getProductById(productId);
+    return productDetails?.price;
+}
+
+export function getProductOfferPriceById(productId: number): number | undefined {
+    const productDetails = getProductById(productId);
+    return productDetails?.offer?.weekly?.bundle?.price;
+}
