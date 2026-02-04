@@ -33,9 +33,13 @@ export function getProductBundleOfferById(productId: number): number | undefined
     return productDetails?.offer?.weekly?.bundle?.quantity;
 }
 
-export function getFinalProductPriceById(productId: number): number | undefined {
-    if (isProductOfferAvailableToday(productId)) {
-        return getProductOfferPriceById(productId);
+export function getFinalProductPriceById(productId: number, quantity: number): number | undefined {
+    const remainder = quantity % 2;
+    const numberOfBundle = quantity >= 2 ? Math.floor(quantity / 2) : 0;
+
+    if (!isProductOfferAvailableToday(productId)) {
+        return (getProductPriceById(productId) || 0) * quantity;
     }
-    return getProductPriceById(productId);
+
+    return ((getProductOfferPriceById(productId) || 0) * numberOfBundle) + ((getProductPriceById(productId) || 0) * remainder);
 }
