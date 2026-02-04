@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import type { CartItem } from '../types/cart';
-import { inStorage } from '../helpers/cartUtils';
+import { inStorage, updateItemQuantity} from '../helpers/cartUtils';
 
 export function useCartLogic() {
   const [cart, setCart] = useState<CartItem[]>([
@@ -12,9 +12,7 @@ export function useCartLogic() {
     setCart((prevCart) => {
       const existingItemInCart = inStorage(prevCart, itemId);
       if (existingItemInCart) {
-        return prevCart.map((item) =>
-          item.id === itemId ? { ...item, quantity: item.quantity + quantity } : item
-        );
+        return updateItemQuantity(prevCart, itemId, 'increase', quantity);
       } else {
         return [...prevCart, { id: itemId, quantity }];
       }
@@ -23,18 +21,12 @@ export function useCartLogic() {
 
   const removeItems = useCallback((itemId: number, quantity: number) => {
     setCart((prevCart) => {
-      const existingItemInCart = prevCart.find((item) => item.id === itemId);
-      if (existingItemInCart) {
-        if (existingItemInCart.quantity <= quantity) {
-            
-          return prevCart.filter((item) => item.id !== itemId);
-        } else {
-          return prevCart.map((item) =>
-            item.id === itemId ? { ...item, quantity: item.quantity - quantity } : item
-          );    
-        }
+      const existingItemInCart = inStorage(prevCart, itemId);
+        if (existingItemInCart) {
+        return updateItemQuantity(prevCart, itemId, 'decrease', quantity);
+      } else {
+        return prevCart;
       }
-      return prevCart;
     });
   }, []);  
 
