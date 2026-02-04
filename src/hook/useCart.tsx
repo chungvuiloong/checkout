@@ -3,7 +3,7 @@ import type { CartItem } from '../types/cart';
 
 export function useCartLogic() {
   const [cart, setCart] = useState<CartItem[]>([
-    { id: 1, quantity: 2 },
+    // { id: 1, quantity: 2 },
     // { id: 2, quantity: 4 },
   ]);
 
