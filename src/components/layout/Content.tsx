@@ -1,6 +1,6 @@
 import React from 'react';
 import H from '../common/H';
-import type { Product } from '../../types/product';
+import type { Product } from '../../utils/types/product';
 import { useCart } from '../../context/CartContext';
 import Button from '../common/Button';
 
