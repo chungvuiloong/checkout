@@ -9,6 +9,10 @@ export function updateItemQuantity(storage: CartItem[], itemId: number, change: 
         case 'increase':
             return storage.map((item) => item.id === itemId ? { ...item, quantity: item.quantity + quantity } : item)
         case 'decrease':
-            return storage.map((item) => item.id === itemId ? { ...item, quantity: item.quantity - quantity } : item)
+            return storage
+                .map((item) => item.id === itemId ? { ...item,
+                    quantity: item.quantity - quantity
+                } : item)
+                .filter((item) => item.quantity > 0)
     }
 }
