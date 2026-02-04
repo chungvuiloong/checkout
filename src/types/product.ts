@@ -3,6 +3,7 @@ export interface Product {
   name: string;
   type: string;
   price: number;
+  quantityInStock: number;
   imageUrl: string;
   offer?: {
     weekly?: {

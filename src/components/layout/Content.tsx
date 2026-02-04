@@ -25,6 +25,9 @@ const Content = ({products}: ProductsProps) => {
                         <H level={2} key={index} className='capitalize text-2xl font-medium'>{product.name}</H>
                         <div className='text-2xl text-primary font-medium'>€ {product.price?.toFixed(2)}</div>
                     </div>
+                    <div>
+                        <p className='text-gray-600'>In Stock: {product.quantityInStock}</p>
+                    </div>
                 </div>
             ))}
         </section>
