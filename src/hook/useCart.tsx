@@ -20,11 +20,15 @@ export function useCartLogic() {
     });
   }, []);
 
+  const clearItem = useCallback((itemId: number) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== itemId));
+  }, []);
+
   const countItemsTotal = useMemo(() => {
     return cart.reduce((total, item) => total + item.quantity, 0);
   }, [cart]);
 
   const cartTotal = 0
 
-  return { cart, addItems, countItemsTotal, cartTotal };
+  return { cart, addItems, clearItem, countItemsTotal, cartTotal };
 }

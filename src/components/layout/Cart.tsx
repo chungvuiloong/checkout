@@ -2,10 +2,11 @@ import React from 'react';
 import H from '../common/H';
 import cartPlaceholder from '../../../public/assets/images/illustration-empty-cart.svg';
 import { useCart } from '../../context/CartContext';
+import Button from '../common/Button';
 
 
 const Cart = () => {
-    const { cart, countItemsTotal, cartTotal } = useCart();
+    const { cart, clearItem,countItemsTotal, cartTotal } = useCart();
 
     return (
         <aside className='col-span-3 max-w-md overflow-hidden shadow-lg p-4'>
@@ -21,8 +22,16 @@ const Cart = () => {
                 <div>
                     {cart.map((item) => (
                         <div key={item.id} className="mb-4">
+                            <p>Id: {item.id}</p>
+                            <p>Quantity: {item.quantity}</p>
+                            
                             {/* <p className="font-medium">{item.name}</p>
                             <p className="text-sm text-gray-600">€{item.price.toFixed(2)}</p> */}
+                            <Button
+                                text="Remove"
+                                variant="secondary"
+                                onClick={() => clearItem(item.id)}
+                            />  
                         </div>
                     ))}
                 </div>
