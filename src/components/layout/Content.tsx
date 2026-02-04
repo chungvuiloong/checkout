@@ -1,14 +1,14 @@
 import React from 'react';
 import H from '../common/H';
 import type { Product } from '../../types/product';
-import { useCartLogic } from '../../hook/useCart';
+import { useCart } from '../../context/CartContext';
 
 type ProductsProps = {
     products: Product[];
 };
 
 const Content = ({products}: ProductsProps) => {
-    const { addItems } = useCartLogic();
+    const { addItems } = useCart();
     return (
         <section className='col-span-9'>
             {products.map((product, index) => (

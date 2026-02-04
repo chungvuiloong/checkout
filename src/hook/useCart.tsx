@@ -1,4 +1,4 @@
-import { use, useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import type { CartItem } from '../types/cart';
 
 export function useCartLogic() {
@@ -6,10 +6,6 @@ export function useCartLogic() {
     { id: 1, quantity: 2 },
     // { id: 2, quantity: 4 },
   ]);
-
-  useEffect(() => {
-    console.log('Cart updated:', cart);
-  }, [cart]);
 
   const addItems = useCallback((itemId: number, quantity: number) => {
     setCart((prevCart) => {
@@ -24,7 +20,11 @@ export function useCartLogic() {
     });
   }, []);
 
+  const countItemsTotal = useMemo(() => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
+  }, [cart]);
+
   const cartTotal = 0
 
-  return { cart, addItems, cartTotal };
+  return { cart, addItems, countItemsTotal, cartTotal };
 }

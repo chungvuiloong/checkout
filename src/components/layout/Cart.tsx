@@ -1,16 +1,16 @@
 import React from 'react';
 import H from '../common/H';
 import cartPlaceholder from '../../../public/assets/images/illustration-empty-cart.svg';
-import { useCartLogic } from '../../hook/useCart';
+import { useCart } from '../../context/CartContext';
 
 
 const Cart = () => {
-    const { cart, cartTotal } = useCartLogic();
+    const { cart, countItemsTotal, cartTotal } = useCart();
 
     return (
         <aside className='col-span-3 max-w-md overflow-hidden shadow-lg p-4'>
             <H level={2} className="text-2xl font-semibold mb-4 text-primary">
-            Cart,
+            Cart {countItemsTotal}
             </H>
             {cart.length === 0 ? (
                 <>
