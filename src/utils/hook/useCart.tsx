@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import type { CartItem } from '../types/cart';
+import { inStorage } from '../helpers/cartUtils';
 
 export function useCartLogic() {
   const [cart, setCart] = useState<CartItem[]>([
@@ -9,7 +10,7 @@ export function useCartLogic() {
 
   const addItems = useCallback((itemId: number, quantity: number) => {
     setCart((prevCart) => {
-      const existingItemInCart = prevCart.find((item) => item.id === itemId);
+      const existingItemInCart = inStorage(prevCart, itemId);
       if (existingItemInCart) {
         return prevCart.map((item) =>
           item.id === itemId ? { ...item, quantity: item.quantity + quantity } : item
