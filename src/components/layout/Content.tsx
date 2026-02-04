@@ -23,7 +23,7 @@ type Product = {
 
 const Content = ({products}: ProductsProps) => {
     return (
-        <div>
+        <section className='col-span-9'>
             {products.map((product, index) => (
                 <div key={index} className='flex flex-col gap-y-8 '>
                     <div className='relative w-75'>
@@ -45,7 +45,7 @@ const Content = ({products}: ProductsProps) => {
                     </div>
                 </div>
             ))}
-        </div>
+        </section>
     );
 };
 

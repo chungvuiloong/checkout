@@ -5,7 +5,7 @@ import cartPlaceholder from '../../../public/assets/images/illustration-empty-ca
 
 const Cart = () => {
     return (
-        <aside className='max-w-md overflow-hidden shadow-lg p-4'>
+        <aside className='col-span-3 max-w-md overflow-hidden shadow-lg p-4'>
             <H level={2} className="text-2xl font-semibold mb-4 text-primary">
             Cart
             </H>
