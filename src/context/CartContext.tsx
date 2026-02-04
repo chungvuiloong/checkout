@@ -3,11 +3,12 @@ import { useCartLogic } from '../hook/useCart';
 import type { CartItem } from '../types/cart';
 
 interface CartContextType {
-  cart: CartItem[];
-  addItems: (itemId: number, quantity: number) => void;
-  clearItem: (itemId: number) => void;
-  countItemsTotal: number;
-  cartTotal: number;
+    cart: CartItem[];
+    addItems: (itemId: number, quantity: number) => void;
+    removeItems: (itemId: number, quantity: number) => void;
+    clearItem: (itemId: number) => void;
+    countItemsTotal: number;
+    cartTotal: number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);

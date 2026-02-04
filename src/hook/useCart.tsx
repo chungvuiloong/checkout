@@ -9,8 +9,8 @@ export function useCartLogic() {
 
   const addItems = useCallback((itemId: number, quantity: number) => {
     setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id === itemId);
-      if (existingItem) {
+      const existingItemInCart = prevCart.find((item) => item.id === itemId);
+      if (existingItemInCart) {
         return prevCart.map((item) =>
           item.id === itemId ? { ...item, quantity: item.quantity + quantity } : item
         );
@@ -20,7 +20,25 @@ export function useCartLogic() {
     });
   }, []);
 
+  const removeItems = useCallback((itemId: number, quantity: number) => {
+    setCart((prevCart) => {
+      const existingItemInCart = prevCart.find((item) => item.id === itemId);
+      if (existingItemInCart) {
+        if (existingItemInCart.quantity <= quantity) {
+            
+          return prevCart.filter((item) => item.id !== itemId);
+        } else {
+          return prevCart.map((item) =>
+            item.id === itemId ? { ...item, quantity: item.quantity - quantity } : item
+          );    
+        }
+      }
+      return prevCart;
+    });
+  }, []);  
+
   const clearItem = useCallback((itemId: number) => {
+
     setCart((prevCart) => prevCart.filter((item) => item.id !== itemId));
   }, []);
 
@@ -30,5 +48,5 @@ export function useCartLogic() {
 
   const cartTotal = 0
 
-  return { cart, addItems, clearItem, countItemsTotal, cartTotal };
+  return { cart, addItems, removeItems, clearItem, countItemsTotal, cartTotal };
 }
