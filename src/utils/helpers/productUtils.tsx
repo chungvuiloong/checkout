@@ -27,3 +27,15 @@ export function getProductOfferPriceById(productId: number): number | undefined 
     const productDetails = getProductById(productId);
     return productDetails?.offer?.weekly?.bundle?.price;
 }
+
+export function getProductBundleOfferById(productId: number): number | undefined {
+    const productDetails = getProductById(productId);
+    return productDetails?.offer?.weekly?.bundle?.quantity;
+}
+
+export function getFinalProductPriceById(productId: number): number | undefined {
+    if (isProductOfferAvailableToday(productId)) {
+        return getProductOfferPriceById(productId);
+    }
+    return getProductPriceById(productId);
+}
