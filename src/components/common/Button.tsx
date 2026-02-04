@@ -16,8 +16,8 @@ const Button = ({
     ariaLabel
 }: ButtonProps) => {
     const style = {
-        'primary': 'border-primary text-white bg-primary hover:opacity-80 focus:ring-2 focus:ring-primary focus:ring-offset-2',
-        'secondary': 'border-primary text-primary hover:text-white bg-white hover:bg-primary focus:ring-2 focus:ring-primary focus:ring-offset-2',
+        'primary': 'border-primary text-white bg-primary hover:opacity-80',
+        'secondary': 'border-primary text-primary hover:text-white bg-white hover:bg-primary',
     } as const
 
     const hoverBelowImage = belowImage ? 'absolute left-1/2 -translate-x-1/2 -bottom-7' : ''
