@@ -2,6 +2,7 @@ import React from 'react';
 import H from '../common/H';
 import type { Product } from '../../types/product';
 import { useCart } from '../../context/CartContext';
+import Button from '../common/Button';
 
 type ProductsProps = {
     products: Product[];
@@ -17,13 +18,7 @@ const Content = ({products}: ProductsProps) => {
                         <div className='bg-white h-80 rounded-2xl overflow-hidden'>
                             <img src={product.imageUrl} className="w-full h-full object-cover" />
                         </div>
-                        <button className='absolute left-1/2 -translate-x-1/2 -bottom-7 px-6 py-3 border-2 w-max border-primary rounded-full
-                        text-primary hover:text-white
-                        bg-white hover:bg-primary
-                        transition-colors group pointer' onClick={() => addItems(product.id, 1)}>
-                            <img src="/assets/icon/icon-add-to-cart.svg" alt="cart" className="inline-block w-5 h-5 mr-2 -mt-1 group-hover:brightness-0 group-hover:invert transition-all" />
-                            <span>Add to Cart</span>
-                        </button>
+                        <Button belowImage text="Add to Cart" onClick={() => addItems(product.id, 1)} />
                     </div>
                     <div className='flex flex-col gap-y-1'>
                         <H level={3} className='capitalize text-lg text-zinc-400'>{product.type}</H>
