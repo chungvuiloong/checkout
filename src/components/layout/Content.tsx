@@ -1,24 +1,9 @@
 import React from 'react';
 import H from '../common/H';
+import type { Product } from '../../types/product';
 
 type ProductsProps = {
     products: Product[];
-};
-
-type Product = {
-    name: string;
-    type: string;
-    price?: number;
-    imageUrl?: string;
-    offer?: {
-        weekly?: {
-            bundle?: {
-                quantity: number;
-                price: number;
-                days: number[];
-            };
-        };
-    };
 };
 
 const Content = ({products}: ProductsProps) => {
@@ -33,7 +18,7 @@ const Content = ({products}: ProductsProps) => {
                         <button className='absolute left-1/2 -translate-x-1/2 -bottom-7 px-6 py-3 border-2 w-max border-primary rounded-full
                         text-primary hover:text-white
                         bg-white hover:bg-primary
-                        transition-colors group pointer'>
+                        transition-colors group pointer' onClick={() => console.log('Test')}>
                             <img src="/assets/icon/icon-add-to-cart.svg" alt="cart" className="inline-block w-5 h-5 mr-2 -mt-1 group-hover:brightness-0 group-hover:invert transition-all" />
                             <span>Add to Cart</span>
                         </button>
