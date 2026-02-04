@@ -3,6 +3,7 @@
 
 const data = [
   {
+    id: 1, // Added id field to differentiate this apple from other name & types of apples
     name: "apple",
     type: "fruit",
     price: 0.30,
