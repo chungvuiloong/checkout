@@ -6,7 +6,7 @@ import Button from '../common/Button';
 
 
 const Cart = () => {
-    const { cart, clearItem, removeItems, countItemsTotal, cartTotal } = useCart();
+    const { cart, clearItem, addItems, removeItems, countItemsTotal, cartTotal } = useCart();
 
     return (
         <aside className='col-span-3 max-w-md overflow-hidden shadow-lg p-4'>
@@ -27,6 +27,11 @@ const Cart = () => {
                             
                             {/* <p className="font-medium">{item.name}</p>
                             <p className="text-sm text-gray-600">€{item.price.toFixed(2)}</p> */}
+                            <Button 
+                                text="Add One"
+                                variant="secondary"
+                                onClick={() => addItems(item.id, 1)}
+                            />
                             <Button
                                 text="Remove One"
                                 variant="secondary"
