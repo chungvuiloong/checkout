@@ -12,7 +12,7 @@ type ProductsProps = {
 const Content = ({products}: ProductsProps) => {
     const { addItems } = useCart();
     return (
-        <section className='sm:col-span-12 lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-12'>
+        <section className='sm:col-span-6 lg:col-span-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12'>
             {products.map((product, index) => (
                 <div key={index}>
                     <div className='relative w-75'>
