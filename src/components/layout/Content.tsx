@@ -3,6 +3,7 @@ import H from '../common/H';
 import type { Product } from '../../utils/types/product';
 import { useCart } from '../../context/CartContext';
 import Button from '../common/Button';
+import { getProductBundleOfferById, getProductOfferPriceById, isProductOfferAvailableToday } from '../../utils/helpers/productUtils';
 
 type ProductsProps = {
     products: Product[];
@@ -27,6 +28,9 @@ const Content = ({products}: ProductsProps) => {
                     </div>
                     <div>
                         <p className='text-gray-600'>In Stock: {product.quantityInStock}</p>
+                        {isProductOfferAvailableToday(product.id) &&  (
+                            <p>Bundle Offer: {getProductBundleOfferById(product.id)} for € {getProductOfferPriceById(product.id)}</p>
+                        )}
                     </div>
                 </div>
             ))}
