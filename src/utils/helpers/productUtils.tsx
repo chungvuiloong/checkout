@@ -44,8 +44,8 @@ export function getProductBundleOfferById(productId: number): number | undefined
 }
 
 export function getFinalProductPriceById(productId: number, quantity: number): number | undefined {
-    const remainder = quantity % 2;
-    const numberOfBundle = quantity >= 2 ? Math.floor(quantity / 2) : 0;
+    const remainder = quantity % getProductBundleOfferById(productId)!;
+    const numberOfBundle = quantity >= 2 ? Math.floor(quantity / getProductBundleOfferById(productId)!) : 0;
 
     if (!isProductOfferAvailableToday(productId)) {
         return (getProductPriceById(productId) || 0) * quantity;
