@@ -10,7 +10,7 @@ const Cart = () => {
     
 
     return (
-        <aside className='sm:col-span-6 lg:col-span-4 h-fit overflow-hidden rounded-2xl shadow-lg p-6'>
+        <aside className='sticky top-0 sm:col-span-6 lg:col-span-4 h-fit overflow-hidden rounded-2xl shadow-lg p-6'>
             <H level={2} className="text-2xl font-semibold mb-4 text-primary">
             Cart ( {countItemsTotal} )
             </H>
