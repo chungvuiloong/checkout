@@ -16,6 +16,12 @@ const Content = ({products}: ProductsProps) => {
             {products.map((product, index) => (
                 <div key={index} className='flex flex-col gap-y-8 '>
                     <div className='relative w-75'>
+                        {isProductOfferAvailableToday(product.id) &&  (
+                            <span className='border-primary text-white bg-primary rounded-full px-4 py-2 inline-flex items-center gap-1'>
+                                <img src="/assets/icon/discount-tag.svg" alt="Discount tag icon" aria-hidden="true" className="w-4 h-4" />
+                                Bundle Offer: {getProductBundleOfferById(product.id)} for € {getProductOfferPriceById(product.id)}
+                            </span>
+                        )}
                         <div className='bg-white h-80 rounded-2xl overflow-hidden'>
                             <img src={product.imageUrl} className="w-full h-full object-cover" />
                         </div>
@@ -29,7 +35,7 @@ const Content = ({products}: ProductsProps) => {
                     <div>
                         <p className='text-gray-600'>In Stock: {product.quantityInStock}</p>
                         {isProductOfferAvailableToday(product.id) &&  (
-                            <p>Bundle Offer: {getProductBundleOfferById(product.id)} for € {getProductOfferPriceById(product.id)}</p>
+                            <span>Bundle Offer: {getProductBundleOfferById(product.id)} for € {getProductOfferPriceById(product.id)}</span>
                         )}
                     </div>
                 </div>
