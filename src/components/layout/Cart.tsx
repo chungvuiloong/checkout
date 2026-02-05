@@ -11,7 +11,7 @@ const Cart = () => {
     
 
     return (
-        <aside className='col-span-1 sm:col-span-1 lg:col-span-2 h-fit max-w-lg overflow-hidden rounded-2xl shadow-lg p-6'>
+        <aside className='sm:col-span-6 lg:col-span-3 h-fit overflow-hidden rounded-2xl shadow-lg p-6'>
             <H level={2} className="text-2xl font-semibold mb-4 text-primary">
             Cart ( {countItemsTotal} )
             </H>
