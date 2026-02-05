@@ -1,21 +1,23 @@
 type ButtonProps = {
-    text: string;
+    method?: string;
     inCart?: boolean;
     belowImage?: boolean;
     variant?: "primary" | "secondary";
     onClick: () => void;
     disabled?: boolean;
     ariaLabel?: string;
+    children?: React.ReactNode;
 };
 
 const Button = ({
-    text,
+    method,
     inCart = false,
     belowImage = false,
     variant = "primary",
     onClick,
     disabled = false,
-    ariaLabel
+    ariaLabel,
+    children,
 }: ButtonProps) => {
     const buttonSize = inCart ? 'px-2 py-2' : 'px-6 py-3';
     const cursorStyle = disabled ? 'cursor-not-allowed' : 'cursor-pointer';
@@ -36,9 +38,9 @@ const Button = ({
     } as const
 
     const getIconSrc = () => {
-        if (text.toLowerCase() === 'increase') return '/assets/icon/icon-plus.svg';
-        if (text.toLowerCase() === 'decrease') return '/assets/icon/icon-minus.svg';
-        if (text.toLowerCase() === 'remove') return '/assets/icon/icon-trash.svg';
+        if (method?.toLowerCase() === 'increase') return '/assets/icon/icon-plus.svg';
+        if (method?.toLowerCase() === 'decrease') return '/assets/icon/icon-minus.svg';
+        if (method?.toLowerCase() === 'remove') return '/assets/icon/icon-trash.svg';
         return '/assets/icon/icon-add-to-cart.svg';
     }
 
@@ -47,7 +49,7 @@ const Button = ({
             className={`${hoverBelowImage} ${baseStyle} ${cursorStyle} ${style[variant]}`}
             onClick={onClick}
             disabled={disabled}
-            aria-label={ariaLabel || text}
+            aria-label={ariaLabel || method}
             type="button"
         >
             {inCart ?
@@ -63,7 +65,7 @@ const Button = ({
                 aria-hidden="true"
                 className={`inline-block w-5 h-5 ${logoStyle[variant]}`}
             />}
-            {!inCart && <span>{text}</span>}
+            {!inCart && <span>{children}</span>}
         </button>
     );
 };

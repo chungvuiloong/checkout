@@ -20,14 +20,14 @@ const ProductCard = ({ inCart = false, product }: ProductCardProps) => {
                     <div className="flex gap-1 items-center">
                         <Button
                             inCart
-                            text="decrease"
+                            method="decrease"
                             variant="secondary"
                             onClick={() => removeItems(product.id, 1)}
                         />
                         <span className="text-primary font-bold min-w-6 text-center">{product.quantity}</span>
                         <Button
                             inCart
-                            text="increase"
+                            method="increase"
                             variant="secondary"
                             onClick={() => addItems(product.id, 1)}
                         />
@@ -36,7 +36,7 @@ const ProductCard = ({ inCart = false, product }: ProductCardProps) => {
                         <span className="font-semibold text-primary">€{(getFinalProductPriceById(product.id, product.quantity || 0) ?? 0).toFixed(2)}</span>
                         <Button
                             inCart
-                            text="remove"
+                            method="remove"
                             variant="secondary"
                             onClick={() => clearItem(product.id)}
                         />
@@ -61,10 +61,9 @@ const ProductCard = ({ inCart = false, product }: ProductCardProps) => {
         <Button
           variant="secondary"
           belowImage
-          text="Add to Cart"
           onClick={() => addItems(product.id, 1)}
           disabled={product.quantityInStock === 0}
-        />
+        >{product.quantityInStock === 0 ? 'Out of Stock' : 'Add to Cart'}</Button>
       </div>
 
       <div className="mt-8 flex flex-col gap-y-1">
