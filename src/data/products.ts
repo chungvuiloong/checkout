@@ -23,7 +23,7 @@ const data = [
     id: 2,
     name: "banana",
     type: "fruit",
-    price: 0.10,
+    price: 0.60,
     quantityInStock: 30,
     imageUrl: "https://images.pexels.com/photos/461208/pexels-photo-461208.jpeg?auto=compress&w=800",
     offer: {
@@ -98,7 +98,7 @@ const data = [
       weekly: {
         bundle: {
           quantity: 2,
-          price: 0.96,
+          price: 1,
           days: [4, 5]
         }
       }
@@ -115,7 +115,7 @@ const data = [
       weekly: {
         bundle: {
           quantity: 2,
-          price: 0.43,
+          price: 0.40,
           days: [0, 2, 6]
         }
       }
@@ -132,7 +132,7 @@ const data = [
       weekly: {
         bundle: {
           quantity: 3,
-          price: 0.68,
+          price: 0.70,
           days: [3, 5]
         }
       }
@@ -149,7 +149,7 @@ const data = [
       weekly: {
         bundle: {
           quantity: 2,
-          price: 0.56,
+          price: 0.60,
           days: [1, 4, 6]
         }
       }
