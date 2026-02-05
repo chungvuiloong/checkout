@@ -17,7 +17,7 @@ const Content = ({products}: ProductsArrayProps) => {
                 {products
                     .filter(product => selectedType === "all" ? true : product.type === selectedType)
                     .map((product) => (
-                        <ProductCard  product={product} />
+                        <ProductCard key={product.id + product.name + product.type} product={product} />
                 ))}
             </div>
         </section>
