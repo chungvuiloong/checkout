@@ -185,7 +185,25 @@ interface ButtonProps {
 - **Custom font**: Haiilo Matter with 5 weight variants (300-700)
 - **Responsive breakpoints**: Mobile-first approach with sm/md/lg variants
 
-## Data Structure
+## Data Structure & Storage
+
+### Dummy Data
+This application uses **in-memory dummy data** stored in [src/data/products.ts](src/data/products.ts) to simulate a product database. The data includes **10 grocery products** with complete details:
+
+| ID | Product | Category | Price | Stock | Bundle Offer | Available Days |
+|----|---------|----------|-------|-------|--------------|----------------|
+| 1  | Apple   | Fruit    | €0.30 | 5     | 2 for €0.45  | Sun, Mon, Tue  |
+| 2  | Banana  | Fruit    | €0.60 | 30    | 2 for €0.40  | Mon, Wed, Fri  |
+| 3  | Carrot  | Vegetable| €0.20 | 25    | 4 for €0.70  | Tue, Thu       |
+| 4  | Potato  | Vegetable| €0.18 | 40    | 5 for €0.63  | Sun, Sat       |
+| 5  | Milk    | Dairy    | €0.40 | 15    | 2 for €0.72  | Mon, Tue, Wed  |
+| 6  | Cheese  | Dairy    | €0.60 | 12    | 2 for €1.00  | Thu, Fri       |
+| 7  | Bread   | Bakery   | €0.25 | 18    | 2 for €0.40  | Sun, Tue, Sat  |
+| 8  | Chips   | Snack    | €0.30 | 22    | 3 for €0.70  | Wed, Fri       |
+| 9  | Juice   | Beverage | €0.35 | 16    | 2 for €0.60  | Mon, Thu, Sat  |
+| 10 | Coffee  | Beverage | €0.70 | 10    | 2 for €1.00  | Wed, Thu, Fri  |
+
+**Note**: All product images are sourced from Pexels free stock photos. Days are represented as 0=Sunday to 6=Saturday.
 
 ### Product
 ```typescript
