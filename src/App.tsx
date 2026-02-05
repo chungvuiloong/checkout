@@ -10,7 +10,7 @@ function App() {
     <CartProvider>
       <div className="min-h-screen bg-gray-100">
           <Header />
-          <main className="py-20">
+          <main className="py-10">
               <div className='container mx-auto px-4 grid grid-cols-1 sm:grid-cols-12 gap-12'>
                   <Content products={data} />
                   <Cart />
