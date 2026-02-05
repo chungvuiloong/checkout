@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import type { CartItem } from '../types/cart';
-import { inStorage, updateItemQuantity} from '../helpers/cartUtils';
+import { inStorage, updateItemQuantity } from '../helpers/cartUtils';
+import { getFinalProductPriceById, getProductById } from '../helpers/productUtils';
 
 export function useCartLogic() {
   const [cart, setCart] = useState<CartItem[]>([
@@ -39,7 +40,16 @@ export function useCartLogic() {
     return cart.reduce((total, item) => total + item.quantity, 0);
   }, [cart]);
 
-  const cartTotal = 0
+const cartTotal = useMemo(() => {
+    let total = 0;
+    cart.forEach((cartItem) => {
+        const productItem = getProductById(cartItem.id);
+        if (productItem) {
+            total += (getFinalProductPriceById(cartItem.id, cartItem.quantity) ?? 0);
+        }
+    });
+    return total;
+}, [cart]);
 
   return { cart, addItems, removeItems, clearItem, countItemsTotal, cartTotal };
 }
