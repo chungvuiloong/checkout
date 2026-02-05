@@ -12,14 +12,17 @@ export function useCartLogic() {
   const addItems = useCallback((itemId: number, quantity: number) => {
     if ((getProductQuantityInStock(itemId) ?? 0) > 0) {
         updateItemStorageQuantityById(itemId, 'decrease', quantity);
-        setCart((prevCart) => {
-        const existingItemInCart = inStorage(prevCart, itemId);
-        if (existingItemInCart) {
-            return updateItemQuantity(prevCart, itemId, 'increase', quantity);
-        } else {
-            return [...prevCart, { id: itemId, quantity }];
+        const product = getProductById(itemId);
+        if (product) {
+            setCart((prevCart) => {
+            const existingItemInCart = inStorage(prevCart, itemId);
+            if (existingItemInCart) {
+                return updateItemQuantity(prevCart, itemId, 'increase', quantity);
+            } else {
+                return [...prevCart, { ...product, quantity }];
+            }
+            });
         }
-        });
         }
   }, []);
 
