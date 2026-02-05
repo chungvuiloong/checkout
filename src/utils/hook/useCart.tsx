@@ -38,7 +38,7 @@ export function useCartLogic() {
   }, []);  
 
   const clearItem = useCallback((itemId: number) => {
-    if ((getProductQuantityInStock(itemId) ?? 0) > 0) {
+    if ((getProductQuantityInStock(itemId) ?? 0) >= 0) {
         const cartItem = cart.find((item) => item.id === itemId);
         if (cartItem) {
             updateItemStorageQuantityById(itemId, 'increase', cartItem.quantity);
