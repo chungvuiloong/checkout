@@ -15,3 +15,11 @@ export interface Product {
     };
   };
 }
+
+export type ProductCardProps = {
+    product: Product;
+};
+
+export type ProductsArrayProps = {
+    products: Product[];
+};
