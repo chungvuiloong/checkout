@@ -1,13 +1,17 @@
 # Supermarket E-Commerce Application
 
-This is a Supermarket web application built with React 19, TypeScript, TailwindCSS, and Vite.
+This is a Supermarket web application built with React 19, TypeScript, JavaScript, TailwindCSS, and Vite, designed with **micro frontend architecture** principles.
+
+**Live Demo**: [https://checkout-coral.vercel.app/](https://checkout-coral.vercel.app/)
 
 ## Tech Stack
 - **React 19.2.0** - Latest React with modern features
 - **TypeScript 5.9.3** - Full type safety throughout
+- **JavaScript** - Core programming language
 - **Vite 7.2.4** - Fast build tool and dev server
 - **Tailwind CSS 4.1.18** - Utility-first CSS framework
 - **ESLint** - Code quality and consistency
+- **Micro Frontend Architecture** - Modular, scalable component design
 
 ## Features
 
@@ -107,6 +111,14 @@ npm run lint
 ```
 
 ## Key Architectural Decisions
+
+### Micro Frontend Architecture
+This application is built using **micro frontend principles**, enabling:
+- **Independent component development**: Each component can be developed, tested, and deployed independently
+- **Modular architecture**: Clear separation between layout, common components, and business logic
+- **Scalability**: Easy to extend with new features without impacting existing functionality
+- **Reusability**: Components designed to be composable and reusable across different contexts
+- **Isolation**: Each module maintains its own state and dependencies
 
 ### State Management
 - **Context API** for global cart state (lightweight alternative to Redux)
