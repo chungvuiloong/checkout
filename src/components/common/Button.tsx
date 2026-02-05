@@ -18,16 +18,21 @@ const Button = ({
     ariaLabel
 }: ButtonProps) => {
     const buttonSize = inCart ? 'px-2 py-2' : 'px-6 py-3';
-    const baseStyle = `flex flex-row gap-2 ${buttonSize} border-2 w-max rounded-full transition-colors group focus:outline-none cursor-pointer touch-manipulation select-none`;
+    const cursorStyle = disabled ? 'cursor-not-allowed' : 'cursor-pointer';
+    const baseStyle = `flex flex-row gap-2 ${buttonSize} border-2 w-max rounded-full transition-colors group focus:outline-none ${cursorStyle} touch-manipulation select-none`;
     const style = {
-        'primary': 'border-primary text-white bg-primary hover:opacity-80 active:opacity-90',
-        'secondary': 'border-primary text-primary hover:text-white bg-white hover:bg-primary active:bg-primary active:text-white',
+        'primary': disabled
+            ? 'border-gray-400 text-gray-400 bg-gray-200'
+            : 'border-primary text-white bg-primary hover:opacity-80 active:opacity-90',
+        'secondary': disabled
+            ? 'border-gray-400 text-gray-400 bg-white'
+            : 'border-primary text-primary hover:text-white bg-white hover:bg-primary active:bg-primary active:text-white',
     } as const
 
     const hoverBelowImage = belowImage ? 'absolute left-1/2 -translate-x-1/2 -bottom-7' : ''
     const logoStyle = {
-        'primary': 'brightness-0 invert',
-        'secondary': 'group-hover:brightness-0 group-hover:invert group-active:brightness-0 group-active:invert',
+        'primary': disabled ? 'opacity-50' : 'brightness-0 invert',
+        'secondary': disabled ? 'opacity-50' : 'group-hover:brightness-0 group-hover:invert group-active:brightness-0 group-active:invert',
     } as const
 
     const getIconSrc = () => {
@@ -39,7 +44,7 @@ const Button = ({
 
     return (
         <button
-            className={`${hoverBelowImage} ${baseStyle} ${style[variant]}`}
+            className={`${hoverBelowImage} ${baseStyle} ${cursorStyle} ${style[variant]}`}
             onClick={onClick}
             disabled={disabled}
             aria-label={ariaLabel || text}
@@ -59,7 +64,6 @@ const Button = ({
                 className={`inline-block w-5 h-5 ${logoStyle[variant]}`}
             />}
             {!inCart && <span>{text}</span>}
-
         </button>
     );
 };
