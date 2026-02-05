@@ -12,7 +12,8 @@ type ProductsProps = {
 
 const Content = ({products}: ProductsProps) => {
     const { addItems } = useCart();
-    const [selectedType, setSelectedType] = React.useState<string | null>(null);
+    const [selectedType, setSelectedType] = React.useState<string | null>("all");
+
     return (
         <section className='sm:col-span-6 lg:col-span-8'>
             <div className='flex flex-col lg:flex-row justify-between'>
@@ -22,7 +23,7 @@ const Content = ({products}: ProductsProps) => {
                     {getAllProductTypes().map((type, index) => (
                         <span
                             key={index}
-                            className={`h-fit px-4 py-2 bg-white rounded-full text-sm text-gray-600 border border-gray-300 hover:border-gray-400 transition-colors capitalize cursor-pointer ${selectedType === type ? 'border-blue-500' : ''}`}
+                            className={`border-2 ${selectedType === type ? 'bg-primary text-white border-primary' : 'bg-white border-white text-primary'} h-fit px-4 py-2 rounded-full text-sm transition-colors capitalize cursor-pointer `}
                             onClick={() => setSelectedType(type)}
                         >
                             {type}
