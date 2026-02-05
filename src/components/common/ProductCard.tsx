@@ -11,7 +11,7 @@ const ProductCard = ({ inCart = false, product }: ProductCardProps) => {
   if (inCart) {
     return (
         <div key={product.id} className="flex gap-4 rounded-lg">
-            <div className="w-20 h-20 rounded-md overflow-hidden shrink-0">
+            <div className="hidden md:flex w-20 h-20 rounded-md overflow-hidden shrink-0">
                 <img src={getProductImageById(product.id)} alt={getProductNameById(product.id)} className="w-full h-full object-cover" />
             </div>
             <div className="flex-1 flex flex-col gap-2">
