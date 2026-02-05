@@ -67,19 +67,20 @@ const ProductCard = ({ inCart = false, product }: ProductCardProps) => {
       </div>
 
       <div className="mt-8 flex flex-col gap-y-1">
-        <H level={3} className="capitalize text-lg text-zinc-400">
-          {product.type}
-        </H>
-        <H level={2} className="capitalize text-2xl font-medium">
-          {product.name}
-        </H>
-        <div className="text-2xl text-primary font-medium">
-          € {(product.price ?? 0).toFixed(2)}
+        <div className='flex flex-row justify-between items-center'>        
+            <H level={3} className="capitalize text-lg text-zinc-400">
+            {product.type}
+            </H>
+            <span className="text-gray-600">In Stock: {product.quantityInStock}</span>
         </div>
-      </div>
-
-      <div>
-        <p className="text-gray-600">In Stock: {product.quantityInStock}</p>
+        <div className='flex flex-row justify-between items-center'>        
+            <H level={2} className="capitalize text-2xl font-medium">
+                {product.name}
+            </H>
+            <span className="text-2xl text-primary font-medium">
+                € {(product.price ?? 0).toFixed(2)}
+            </span>
+        </div>
       </div>
     </div>
   );
