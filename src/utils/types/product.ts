@@ -1,6 +1,8 @@
-export interface Product {
-  quantity?: number;
+import type { CartItem } from "./cart";
+
+export interface Product  {
   id: number;
+  quantity?: number;
   name: string;
   type: string;
   price: number;
@@ -18,7 +20,7 @@ export interface Product {
 }
 
 export type ProductCardProps = {
-    product: Product;
+    product: Product | CartItem;
     inCart?: boolean;
 };
 
