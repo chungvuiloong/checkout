@@ -49,7 +49,7 @@ const ProductCard = ({ inCart = false, product }: ProductCardProps) => {
 
   return (
     <div key={product.id}>
-      <div className="relative w-75">
+      <div className="relative">
         <DiscountTag id={product.id} />
         <div className="bg-white h-80 rounded-2xl overflow-hidden">
           <img
