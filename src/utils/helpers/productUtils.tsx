@@ -18,6 +18,11 @@ export function isProductOfferAvailableToday(productId: number): boolean {
     return offerDays.includes(today);
 }
 
+export function getProductNameById(productId: number): string | undefined {
+    const productDetails = getProductById(productId);
+    return productDetails?.name;
+}
+
 export function getProductPriceById(productId: number): number | undefined {
     const productDetails = getProductById(productId);
     return productDetails?.price;
