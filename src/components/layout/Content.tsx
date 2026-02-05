@@ -12,9 +12,9 @@ type ProductsProps = {
 const Content = ({products}: ProductsProps) => {
     const { addItems } = useCart();
     return (
-        <section className='col-span-1 sm:col-span-1 lg:col-span-4'>
+        <section className='sm:col-span-12 lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-12'>
             {products.map((product, index) => (
-                <div key={index} className='flex flex-col gap-y-8 '>
+                <div key={index}>
                     <div className='relative w-75'>
                         <DiscountTag id={product.id} />
                         <div className='bg-white h-80 rounded-2xl overflow-hidden'>
@@ -22,7 +22,7 @@ const Content = ({products}: ProductsProps) => {
                         </div>
                         <Button variant='secondary' belowImage text="Add to Cart" onClick={() => addItems(product.id, 1)} />
                     </div>
-                    <div className='flex flex-col gap-y-1'>
+                    <div className='mt-8 flex flex-col gap-y-1'>
                         <H level={3} className='capitalize text-lg text-zinc-400'>{product.type}</H>
                         <H level={2} key={index} className='capitalize text-2xl font-medium'>{product.name}</H>
                         <div className='text-2xl text-primary font-medium'>€ {product.price?.toFixed(2)}</div>
