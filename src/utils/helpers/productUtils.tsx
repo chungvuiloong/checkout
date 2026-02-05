@@ -70,3 +70,9 @@ export function getFinalProductPriceById(productId: number, quantity: number): n
 
     return ((getProductOfferPriceById(productId) || 0) * numberOfBundle) + ((getProductPriceById(productId) || 0) * remainder);
 }
+
+export function getAllProductTypes(): string[] {
+    const allTypes = ['all']
+    const uniqueTypes = [...new Set(productData.map(item => item.type))];
+    return allTypes.concat(uniqueTypes);
+}
