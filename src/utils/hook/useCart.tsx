@@ -24,6 +24,9 @@ export function useCartLogic() {
   }, []);
 
   const removeItems = useCallback((itemId: number, quantity: number) => {
+     if ((getProductQuantityInStock(itemId) ?? 0) > 0) {
+        updateItemStorageQuantityById(itemId, 'increase', quantity);
+     }
     setCart((prevCart) => {
       const existingItemInCart = inStorage(prevCart, itemId);
         if (existingItemInCart) {
