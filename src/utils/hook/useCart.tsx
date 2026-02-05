@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import type { CartItem } from '../types/cart';
 import { inStorage, updateItemQuantity } from '../helpers/cartUtils';
-import { getFinalProductPriceById, getProductById } from '../helpers/productUtils';
+import { getFinalProductPriceById, getProductById, getProductQuantityInStock, updateItemStorageQuantityById } from '../helpers/productUtils';
 
 export function useCartLogic() {
   const [cart, setCart] = useState<CartItem[]>([
@@ -10,14 +10,17 @@ export function useCartLogic() {
   ]);
 
   const addItems = useCallback((itemId: number, quantity: number) => {
-    setCart((prevCart) => {
-      const existingItemInCart = inStorage(prevCart, itemId);
-      if (existingItemInCart) {
-        return updateItemQuantity(prevCart, itemId, 'increase', quantity);
-      } else {
-        return [...prevCart, { id: itemId, quantity }];
-      }
-    });
+    if ((getProductQuantityInStock(itemId) ?? 0) > 0) {
+        updateItemStorageQuantityById(itemId, 'decrease', quantity);
+        setCart((prevCart) => {
+        const existingItemInCart = inStorage(prevCart, itemId);
+        if (existingItemInCart) {
+            return updateItemQuantity(prevCart, itemId, 'increase', quantity);
+        } else {
+            return [...prevCart, { id: itemId, quantity }];
+        }
+        });
+        }
   }, []);
 
   const removeItems = useCallback((itemId: number, quantity: number) => {

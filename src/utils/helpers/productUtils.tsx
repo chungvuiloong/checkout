@@ -28,6 +28,11 @@ export function getProductImageById(productId: number): string | undefined {
     return productDetails?.imageUrl;
 }
 
+export function getProductQuantityInStock(productId: number): number | undefined {
+    const productDetails = getProductById(productId);
+    return productDetails?.quantityInStock;
+}
+
 export function getProductPriceById(productId: number): number | undefined {
     const productDetails = getProductById(productId);
     return productDetails?.price;
@@ -41,6 +46,18 @@ export function getProductOfferPriceById(productId: number): number | undefined 
 export function getProductBundleOfferById(productId: number): number | undefined {
     const productDetails = getProductById(productId);
     return productDetails?.offer?.weekly?.bundle?.quantity;
+}
+
+export function updateItemStorageQuantityById(productId: number, change: 'increase' | 'decrease', quantity: number): number | undefined {
+    const productDetails = getProductById(productId);
+    if (!productDetails) return undefined;
+
+    switch (change) {
+        case 'increase':
+            return (productDetails.quantityInStock += quantity);
+        case 'decrease':
+            return (productDetails.quantityInStock -= quantity);
+    }
 }
 
 export function getFinalProductPriceById(productId: number, quantity: number): number | undefined {
