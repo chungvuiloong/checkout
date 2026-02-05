@@ -20,7 +20,7 @@ const Content = ({products}: ProductsProps) => {
                         <div className='bg-white h-80 rounded-2xl overflow-hidden'>
                             <img src={product.imageUrl} className="w-full h-full object-cover" />
                         </div>
-                        <Button variant='secondary' belowImage text="Add to Cart" onClick={() => addItems(product.id, 1)} />
+                        <Button variant='secondary' belowImage text="Add to Cart" onClick={() => addItems(product.id, 1)} disabled={product.quantityInStock === 0} />
                     </div>
                     <div className='mt-8 flex flex-col gap-y-1'>
                         <H level={3} className='capitalize text-lg text-zinc-400'>{product.type}</H>
