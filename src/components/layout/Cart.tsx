@@ -3,6 +3,7 @@ import H from '../common/H';
 import cartPlaceholder from '../../../public/assets/images/illustration-empty-cart.svg';
 import { useCart } from '../../context/CartContext';
 import Button from '../common/Button';
+import { getFinalProductPriceById } from '../../utils/helpers/productUtils';
 
 
 const Cart = () => {
@@ -24,7 +25,7 @@ const Cart = () => {
                         <div key={item.id} className="mb-4">
                             <p>Id: {item.id}</p>
                             <p>Quantity: {item.quantity}</p>
-                            
+                            <p>Price: €{getFinalProductPriceById(item.id, item.quantity)?.toFixed(2)}</p>
                             {/* <p className="font-medium">{item.name}</p>
                             <p className="text-sm text-gray-600">€{item.price.toFixed(2)}</p> */}
                             <Button 
