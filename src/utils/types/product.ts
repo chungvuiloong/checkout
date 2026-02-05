@@ -1,4 +1,5 @@
 export interface Product {
+  quantity?: number;
   id: number;
   name: string;
   type: string;
@@ -18,6 +19,7 @@ export interface Product {
 
 export type ProductCardProps = {
     product: Product;
+    inCart?: boolean;
 };
 
 export type ProductsArrayProps = {
