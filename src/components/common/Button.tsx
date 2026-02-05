@@ -16,22 +16,22 @@ const Button = ({
     ariaLabel
 }: ButtonProps) => {
     const style = {
-        'primary': 'border-primary text-white bg-primary hover:opacity-80',
-        'secondary': 'border-primary text-primary hover:text-white bg-white hover:bg-primary',
+        'primary': 'border-primary text-white bg-primary hover:opacity-80 active:opacity-90',
+        'secondary': 'border-primary text-primary hover:text-white bg-white hover:bg-primary active:bg-primary active:text-white',
     } as const
 
     const hoverBelowImage = belowImage ? 'absolute left-1/2 -translate-x-1/2 -bottom-7' : ''
     const logoStyle = {
         'primary': 'brightness-0 invert',
-        'secondary': 'group-hover:brightness-0 group-hover:invert',
+        'secondary': 'group-hover:brightness-0 group-hover:invert group-active:brightness-0 group-active:invert',
     } as const
 
     return (
         <button
             className={`${hoverBelowImage} px-6 py-3 border-2 w-max rounded-full
-            ${style[variant]} transition-colors group pointer
+            ${style[variant]} transition-colors group
             disabled:opacity-50 disabled:cursor-not-allowed
-            focus:outline-none`}
+            focus:outline-none cursor-pointer touch-manipulation select-none`}
             onClick={onClick}
             disabled={disabled}
             aria-label={ariaLabel || text}
