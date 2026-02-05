@@ -46,14 +46,14 @@ const data = [
     offer: {
       weekly: {
         bundle: {
-          quantity: 2,
-          price: 0.60,
+          quantity: 4,
+          price: 0.70,
           days: [2, 4]
         }
       }
     }
   },
-  {
+    {
     id: 4,
     name: "potato",
     type: "vegetable",
@@ -63,7 +63,7 @@ const data = [
     offer: {
       weekly: {
         bundle: {
-          quantity: 2,
+          quantity: 5,
           price: 0.63,
           days: [0, 6]
         }
@@ -131,7 +131,7 @@ const data = [
     offer: {
       weekly: {
         bundle: {
-          quantity: 2,
+          quantity: 3,
           price: 0.68,
           days: [3, 5]
         }
