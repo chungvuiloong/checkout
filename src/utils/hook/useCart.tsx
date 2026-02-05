@@ -38,9 +38,14 @@ export function useCartLogic() {
   }, []);  
 
   const clearItem = useCallback((itemId: number) => {
-
-    setCart((prevCart) => prevCart.filter((item) => item.id !== itemId));
-  }, []);
+    if ((getProductQuantityInStock(itemId) ?? 0) > 0) {
+        const cartItem = cart.find((item) => item.id === itemId);
+        if (cartItem) {
+            updateItemStorageQuantityById(itemId, 'increase', cartItem.quantity);
+        }
+    }
+    setCart((prevCart) => prevCart.filter((item) => item.id !== itemId));   
+  }, [cart]);
 
   const countItemsTotal = useMemo(() => {
     return cart.reduce((total, item) => total + item.quantity, 0);
