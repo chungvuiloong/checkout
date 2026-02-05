@@ -23,6 +23,11 @@ export function getProductNameById(productId: number): string | undefined {
     return productDetails?.name;
 }
 
+export function getProductImageById(productId: number): string | undefined {
+    const productDetails = getProductById(productId);
+    return productDetails?.imageUrl;
+}
+
 export function getProductPriceById(productId: number): number | undefined {
     const productDetails = getProductById(productId);
     return productDetails?.price;
